@@ -4,7 +4,7 @@ import { fetchMoviesById } from 'services/api';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  console.log(movieId);
+
   const [mdets, setMdets] = useState([null]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const MovieDetails = () => {
             ? `https://image.tmdb.org/t/p/w500${mdets.poster_path}`
             : ''
         }
-        width="120"
+        // width="120"
         alt={mdets.media_type}
       />
       <p>{mdets.title}</p>
