@@ -15,7 +15,7 @@ const Home = () => {
       <ul className={s.ul}>
         {days.map(day => (
           <li className={s.card} key={day.id}>
-            <Link to={day.id}>
+            <Link to={`/movies/${day.id.toString()}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${day.poster_path}`}
                 width="120"
