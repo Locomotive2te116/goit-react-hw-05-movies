@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { fetchMoviesById } from 'services/api';
 
 const MovieDetails = () => {
@@ -10,7 +10,7 @@ const MovieDetails = () => {
   useEffect(() => {
     fetchMoviesById(movieId).then(res => setMdets(res));
   }, [movieId]);
-
+  console.log(movieId);
   return (
     <div>
       <img
@@ -23,6 +23,11 @@ const MovieDetails = () => {
         alt={mdets.media_type}
       />
       <p>{mdets.title}</p>
+      <hr />
+      <Link to="cast">Cast</Link>
+      <Link to="reviews">Reviews</Link>
+
+      <Outlet />
     </div>
   );
 };
