@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { fetchMoviesBySerch } from 'services/api';
 import { SerchBar } from './SerchBar';
 import s from './Movie.module.css';
+
 const Movies = () => {
   const [inputValue, setInputValue] = useState('');
   const [serchs, setSerch] = useState([]);
@@ -20,14 +21,14 @@ const Movies = () => {
   const onSubmit = e => {
     e.preventDefault();
     const inputValue = e.currentTarget.elements.inputValue.value;
-    console.log(inputValue);
     setInputValue(inputValue);
   };
   const location = useLocation();
+
   return (
     <div>
-      <h2>Movies</h2>
-      <hr />
+      {/* <h2>Movies</h2> */}
+      {/* <hr /> */}
       <SerchBar onSubmit={onSubmit} />
       <ul className={s.ul}>
         {serchs.map(serch => (

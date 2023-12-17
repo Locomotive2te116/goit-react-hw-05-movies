@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { fetchMoviesById } from 'services/api';
 import s from './MovieDetails.module.css';
+
 const MovieDetails = () => {
   const { movieId } = useParams();
 
@@ -17,16 +18,19 @@ const MovieDetails = () => {
     fetchMoviesById(movieId).then(res => setMdets(res));
   }, [movieId]);
   const location = useLocation();
+  const goBackRef = useRef(location.state?.from || '/movies');
   const navigate = useNavigate();
-  const goBackRef = useRef(location.state?.from);
+
   const handleGoBack = () => {
     navigate(goBackRef.current);
+    console.log(goBackRef.current);
   };
 
   return (
     <div className={s.position}>
       <div className={s.butonpos}>
         <button onClick={handleGoBack}>Go back</button>
+
         <div className={s.pos}>
           <img
             className={s.poster}

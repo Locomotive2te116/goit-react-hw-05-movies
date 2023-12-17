@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: tomato;
+  font-size: 1.2rem;
+}
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+.Link {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 32px;
+  color: black;
+
+  &:active {
+    color: #303f9f;
+    text-decoration: underline;
+  }
+  &:focus {
+    color: #303f9f;
+    text-decoration: underline;
+  }
+}
