@@ -1,0 +1,31 @@
+.butonpos {
+  display: flex;
+  flex-direction: column;
+}
+.position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pos {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 40px;
+}
+.poster {
+  width: 350px;
+  height: 485px;
+  /* margin-bottom: 15px; */
+}
+.title {
+  font-size: 36px;
+}
