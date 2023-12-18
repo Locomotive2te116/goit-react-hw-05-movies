@@ -37,7 +37,6 @@ const MovieDetails = () => {
                 ? `https://image.tmdb.org/t/p/w500${mdets.poster_path}`
                 : ''
             }
-            // width="120"
             alt={mdets.media_type}
           />
           <div className={s.description}>

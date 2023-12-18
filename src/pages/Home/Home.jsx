@@ -10,8 +10,6 @@ const Home = () => {
   const location = useLocation();
   return (
     <div>
-      {/* <h2>Home</h2>
-      <hr /> */}
       <ul className={s.ul}>
         {days.map(day => (
           <li className={s.card} key={day.id}>

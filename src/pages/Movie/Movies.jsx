@@ -5,7 +5,7 @@ import { SerchBar } from './SerchBar';
 import s from './Movie.module.css';
 
 const Movies = () => {
-  const [inputValue, setInputValue] = useState('');
+  // const [inputValue, setInputValue] = useState('');
   const [serchs, setSerch] = useState([]);
 
   const location = useLocation();
