@@ -9,4 +9,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </BrowserRouter>
 );
-// basename="/goit-react-hw-05-movies"

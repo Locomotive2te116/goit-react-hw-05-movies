@@ -11,19 +11,17 @@ import s from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-
   const [mdets, setMdets] = useState([null]);
+  const location = useLocation();
+  const goBackRef = useRef(location.state?.from ?? '/');
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchMoviesById(movieId).then(res => setMdets(res));
   }, [movieId]);
-  const location = useLocation();
-  const goBackRef = useRef(location.state?.from || '/movies');
-  const navigate = useNavigate();
 
   const handleGoBack = () => {
     navigate(goBackRef.current);
-    console.log(goBackRef.current);
   };
 
   return (

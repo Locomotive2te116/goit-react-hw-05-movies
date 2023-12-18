@@ -11,13 +11,13 @@
   gap: 10px;
 }
 
-.Link {
+.NavLink {
   text-decoration: none;
   font-weight: 700;
   font-size: 32px;
   color: black;
 
-  &:active {
+  &.active {
     color: #303f9f;
     text-decoration: underline;
   }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { fetchMoviesBySerch } from 'services/api';
 import { SerchBar } from './SerchBar';
 import s from './Movie.module.css';
@@ -7,29 +7,33 @@ import s from './Movie.module.css';
 const Movies = () => {
   const [inputValue, setInputValue] = useState('');
   const [serchs, setSerch] = useState([]);
+
+  const location = useLocation();
+  console.log(location);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const movie = searchParams.get('movie') ?? '';
+  console.log(movie);
+  const updateQueryString = query => {
+    query !== '' ? setSearchParams({ movie: query }) : setSearchParams({});
+  };
+
   useEffect(() => {
     async function getNewMovie() {
       try {
-        const serchs = await fetchMoviesBySerch(inputValue);
+        const serchs = await fetchMoviesBySerch(movie);
         setSerch(serchs);
       } catch (error) {
         console.log(error);
       }
     }
     getNewMovie();
-  }, [inputValue]);
-  const onSubmit = e => {
-    e.preventDefault();
-    const inputValue = e.currentTarget.elements.inputValue.value;
-    setInputValue(inputValue);
-  };
-  const location = useLocation();
+  }, [movie]);
 
   return (
     <div>
       {/* <h2>Movies</h2> */}
       {/* <hr /> */}
-      <SerchBar onSubmit={onSubmit} />
+      <SerchBar setQuery={updateQueryString} />
       <ul className={s.ul}>
         {serchs.map(serch => (
           <li className={s.card} key={serch.id}>
